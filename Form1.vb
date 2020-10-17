@@ -17,11 +17,6 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'GimnasioDataSet.sp_ListarCursos' Puede moverla o quitarla según sea necesario.
-        Me.Sp_ListarCursosTableAdapter.Fill(Me.GimnasioDataSet.sp_ListarCursos)
-        Dim row0 As String() = {"1", "29", "Revolution 9", "Beatles", "Beatles", "The Beatles [White Album]"}
-        Dim row1 As String() = {"2", "6", "Fools Rush In", "Beatles", "Frank Sinatra", "Nice 'N' Easy"}
-        dgvListaGrupos.Rows.Add(row0)
-        dgvListaGrupos.Rows.Add(row1)
         'Me.Sp_ListarCursosTableAdapter.Fill(Me.GimnasioDataSet.sp_ListarCursos)'
         Dim objC As New Curso
         objC.nombreCurso = "Curso de Spinning" 'cmbCurso.SelectedIndex'
@@ -37,6 +32,11 @@ Public Class Form1
         Next
 
 
+        Me.Sp_ListarCursosTableAdapter.Fill(Me.GimnasioDataSet.sp_ListarCursos)
+        Dim row0 As String() = {"1", "29", "Revolution 9", "Beatles", "Beatles", "The Beatles [White Album]"}
+        Dim row1 As String() = {"2", "6", "Fools Rush In", "Beatles", "Frank Sinatra", "Nice 'N' Easy"}
+        dgvListaGrupos.Rows.Add(row0)
+        dgvListaGrupos.Rows.Add(row1)
     End Sub
 
     Private Sub btnRegistrarCliente_Click(sender As Object, e As EventArgs) Handles btnRegistrarCliente.Click
