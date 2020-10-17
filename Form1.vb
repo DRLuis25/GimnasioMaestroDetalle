@@ -18,6 +18,19 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'GimnasioDataSet.sp_ListarCursos' Puede moverla o quitarla según sea necesario.
         'Me.Sp_ListarCursosTableAdapter.Fill(Me.GimnasioDataSet.sp_ListarCursos)'
+        Dim objC As New Curso
+        objC.nombreCurso = "Curso de Spinning" 'cmbCurso.SelectedIndex'
+        Dim objH As New Horario
+        Dim objDG As New DetalleGrupo
+        Dim Lista As New List(Of Grupo)
+        Lista = GrupoLN.listarGrupos(objC)
+        For Each item As Grupo In Lista
+            objH.IdHorario = item.idHorario
+            objDG.idGrupo = item.idGrupo
+            dgvListaGrupos.Rows.Add(item.idGrupo, HorarioLN.ListarHoras(objH),
+                                    item.fechaInicio, item.fechaFin, DetalleGrupoLN.ListarCupos(objDG))
+        Next
+
 
     End Sub
 
