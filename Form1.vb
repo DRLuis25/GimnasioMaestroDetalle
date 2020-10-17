@@ -22,6 +22,21 @@ Public Class Form1
         Dim row1 As String() = {"2", "6", "Fools Rush In", "Beatles", "Frank Sinatra", "Nice 'N' Easy"}
         dgvListaGrupos.Rows.Add(row0)
         dgvListaGrupos.Rows.Add(row1)
+        'Me.Sp_ListarCursosTableAdapter.Fill(Me.GimnasioDataSet.sp_ListarCursos)'
+        Dim objC As New Curso
+        objC.nombreCurso = "Curso de Spinning" 'cmbCurso.SelectedIndex'
+        Dim objH As New Horario
+        Dim objDG As New DetalleGrupo
+        Dim Lista As New List(Of Grupo)
+        Lista = GrupoLN.listarGrupos(objC)
+        For Each item As Grupo In Lista
+            objH.IdHorario = item.idHorario
+            objDG.idGrupo = item.idGrupo
+            dgvListaGrupos.Rows.Add(item.idGrupo, item.NombreGrupo, HorarioLN.ListarHoras(objH),
+                                    item.fechaInicio, item.fechaFin, DetalleGrupoLN.ListarCupos(objDG))
+        Next
+
+
     End Sub
 
     Private Sub btnRegistrarCliente_Click(sender As Object, e As EventArgs) Handles btnRegistrarCliente.Click

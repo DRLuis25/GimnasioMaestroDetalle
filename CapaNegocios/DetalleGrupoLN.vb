@@ -5,4 +5,9 @@ Public Class DetalleGrupoLN
         Dim objAD As New DetalleGrupoAD
         objAD.RegistrarNuevoDetalle(objDG)
     End Sub
+
+    Public Shared Function ListarCupos(objDG As DetalleGrupo) As String
+        Dim objAD As New DetalleGrupoAD
+        Return objAD.ListarCupos(objDG)
+    End Function
 End Class

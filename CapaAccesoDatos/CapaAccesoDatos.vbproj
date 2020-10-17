@@ -68,6 +68,7 @@
     <Compile Include="ClienteAD.vb" />
     <Compile Include="DetalleGrupoAD.vb" />
     <Compile Include="GrupoAD.vb" />
+    <Compile Include="HorarioAD.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
