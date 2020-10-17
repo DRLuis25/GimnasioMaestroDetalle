@@ -18,12 +18,36 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'GimnasioDataSet.sp_ListarCursos' Puede moverla o quitarla según sea necesario.
         Me.Sp_ListarCursosTableAdapter.Fill(Me.GimnasioDataSet.sp_ListarCursos)
-
+        Dim row0 As String() = {"1", "29", "Revolution 9", "Beatles", "Beatles", "The Beatles [White Album]"}
+        Dim row1 As String() = {"2", "6", "Fools Rush In", "Beatles", "Frank Sinatra", "Nice 'N' Easy"}
+        dgvListaGrupos.Rows.Add(row0)
+        dgvListaGrupos.Rows.Add(row1)
     End Sub
 
     Private Sub btnRegistrarCliente_Click(sender As Object, e As EventArgs) Handles btnRegistrarCliente.Click
-        Dim objP As New Persona
+        Dim objP As New Cliente
         objP.DNI = txtDNI.Text
-        txtApyNom.Text = ClienteLN.BuscarCliente(objP)
+        Dim idCliente As String
+        Dim nroFila As Integer
+        Dim idGrupo As String
+        Dim mPago As String
+        idCliente = ClienteLN.BuscarCliente(objP)
+        If dgvListaGrupos.SelectedRows.Count > 0 Then
+            nroFila = dgvListaGrupos.CurrentRow.Index
+            idGrupo = dgvListaGrupos.Rows(nroFila).Cells(0).Value
+            'Label4.Text = nroGrupo
+            If cbmMPago.Text = "Contado" Then
+                mPago = "2"
+            ElseIf cbmMPago.Text = "Tarjeta Debito" Then
+                mPago = "1"
+            Else
+                mPago = "0"
+            End If
+            Dim objDG As New DetalleGrupo
+            objDG.idGrupo = idGrupo
+            objDG.idCliente = idCliente
+            objDG.MedioDePago = mPago
+            DetalleGrupoLN.RegistrarNuevoDetalle(objDG)
+        End If
     End Sub
 End Class

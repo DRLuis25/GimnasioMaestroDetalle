@@ -31,12 +31,6 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgvListaGrupos = New System.Windows.Forms.DataGridView()
-        Me.colnomGrupo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colNombCurso = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colHorario = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colFechaInicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colFechaTerm = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colCupos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.SpListarCursosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -44,6 +38,15 @@ Partial Class Form1
         Me.btnRegistrarCliente = New System.Windows.Forms.Button()
         Me.btnListarMiembros = New System.Windows.Forms.Button()
         Me.Sp_ListarCursosTableAdapter = New ProgramaMaestroDetalle.GimnasioDataSetTableAdapters.sp_ListarCursosTableAdapter()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cbmMPago = New System.Windows.Forms.ComboBox()
+        Me.colidGrupo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNombCurso = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colHorario = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colFechaInicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colFechaTerm = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colCupos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgvListaGrupos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,7 +57,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(24, 35)
+        Me.Label1.Location = New System.Drawing.Point(97, 38)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(26, 13)
         Me.Label1.TabIndex = 0
@@ -62,20 +65,22 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.cbmMPago)
+        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.txtApyNom)
         Me.GroupBox1.Controls.Add(Me.txtDNI)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(23, 35)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(419, 105)
+        Me.GroupBox1.Size = New System.Drawing.Size(419, 142)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos Cliente"
         '
         'txtApyNom
         '
-        Me.txtApyNom.Location = New System.Drawing.Point(151, 63)
+        Me.txtApyNom.Location = New System.Drawing.Point(148, 106)
         Me.txtApyNom.Name = "txtApyNom"
         Me.txtApyNom.ReadOnly = True
         Me.txtApyNom.Size = New System.Drawing.Size(229, 20)
@@ -92,7 +97,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(24, 63)
+        Me.Label2.Location = New System.Drawing.Point(21, 106)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(102, 13)
         Me.Label2.TabIndex = 1
@@ -103,9 +108,9 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.dgvListaGrupos)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.ComboBox1)
-        Me.GroupBox2.Location = New System.Drawing.Point(23, 163)
+        Me.GroupBox2.Location = New System.Drawing.Point(23, 215)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(728, 270)
+        Me.GroupBox2.Size = New System.Drawing.Size(728, 218)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos Grupo"
@@ -117,51 +122,14 @@ Partial Class Form1
         Me.dgvListaGrupos.AllowUserToResizeColumns = False
         Me.dgvListaGrupos.AllowUserToResizeRows = False
         Me.dgvListaGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvListaGrupos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colnomGrupo, Me.colNombCurso, Me.colHorario, Me.colFechaInicio, Me.colFechaTerm, Me.colCupos})
-        Me.dgvListaGrupos.Location = New System.Drawing.Point(15, 84)
+        Me.dgvListaGrupos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colidGrupo, Me.colNombCurso, Me.colHorario, Me.colFechaInicio, Me.colFechaTerm, Me.colCupos})
+        Me.dgvListaGrupos.Location = New System.Drawing.Point(15, 49)
         Me.dgvListaGrupos.Name = "dgvListaGrupos"
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         Me.dgvListaGrupos.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvListaGrupos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvListaGrupos.Size = New System.Drawing.Size(697, 160)
         Me.dgvListaGrupos.TabIndex = 3
-        '
-        'colnomGrupo
-        '
-        Me.colnomGrupo.HeaderText = "Nombre Grupo"
-        Me.colnomGrupo.Name = "colnomGrupo"
-        Me.colnomGrupo.ReadOnly = True
-        '
-        'colNombCurso
-        '
-        Me.colNombCurso.HeaderText = "Nombre Curso"
-        Me.colNombCurso.Name = "colNombCurso"
-        Me.colNombCurso.ReadOnly = True
-        Me.colNombCurso.Width = 150
-        '
-        'colHorario
-        '
-        Me.colHorario.HeaderText = "Horario"
-        Me.colHorario.Name = "colHorario"
-        Me.colHorario.ReadOnly = True
-        '
-        'colFechaInicio
-        '
-        Me.colFechaInicio.HeaderText = "Fecha Inicio"
-        Me.colFechaInicio.Name = "colFechaInicio"
-        Me.colFechaInicio.ReadOnly = True
-        '
-        'colFechaTerm
-        '
-        Me.colFechaTerm.HeaderText = "Fecha Término"
-        Me.colFechaTerm.Name = "colFechaTerm"
-        Me.colFechaTerm.ReadOnly = True
-        '
-        'colCupos
-        '
-        Me.colCupos.HeaderText = "Cupos Disp."
-        Me.colCupos.Name = "colCupos"
-        Me.colCupos.ReadOnly = True
         '
         'Label3
         '
@@ -196,7 +164,7 @@ Partial Class Form1
         '
         'btnRegistrarCliente
         '
-        Me.btnRegistrarCliente.Location = New System.Drawing.Point(589, 65)
+        Me.btnRegistrarCliente.Location = New System.Drawing.Point(589, 60)
         Me.btnRegistrarCliente.Name = "btnRegistrarCliente"
         Me.btnRegistrarCliente.Size = New System.Drawing.Size(75, 23)
         Me.btnRegistrarCliente.TabIndex = 5
@@ -216,11 +184,76 @@ Partial Class Form1
         '
         Me.Sp_ListarCursosTableAdapter.ClearBeforeFill = True
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(712, 19)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(39, 13)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Label4"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(37, 73)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(86, 13)
+        Me.Label5.TabIndex = 4
+        Me.Label5.Text = "Método de Pago"
+        '
+        'cbmMPago
+        '
+        Me.cbmMPago.FormattingEnabled = True
+        Me.cbmMPago.Items.AddRange(New Object() {"", "Contado", "Tarjeta Debito", "Tarjeta Crédito"})
+        Me.cbmMPago.Location = New System.Drawing.Point(148, 70)
+        Me.cbmMPago.Name = "cbmMPago"
+        Me.cbmMPago.Size = New System.Drawing.Size(127, 21)
+        Me.cbmMPago.TabIndex = 5
+        '
+        'colidGrupo
+        '
+        Me.colidGrupo.HeaderText = "ID Grupo"
+        Me.colidGrupo.Name = "colidGrupo"
+        Me.colidGrupo.ReadOnly = True
+        '
+        'colNombCurso
+        '
+        Me.colNombCurso.HeaderText = "Nombre Curso"
+        Me.colNombCurso.Name = "colNombCurso"
+        Me.colNombCurso.ReadOnly = True
+        Me.colNombCurso.Width = 150
+        '
+        'colHorario
+        '
+        Me.colHorario.HeaderText = "Horario"
+        Me.colHorario.Name = "colHorario"
+        Me.colHorario.ReadOnly = True
+        '
+        'colFechaInicio
+        '
+        Me.colFechaInicio.HeaderText = "Fecha Inicio"
+        Me.colFechaInicio.Name = "colFechaInicio"
+        Me.colFechaInicio.ReadOnly = True
+        '
+        'colFechaTerm
+        '
+        Me.colFechaTerm.HeaderText = "Fecha Término"
+        Me.colFechaTerm.Name = "colFechaTerm"
+        Me.colFechaTerm.ReadOnly = True
+        '
+        'colCupos
+        '
+        Me.colCupos.HeaderText = "Cupos Disp."
+        Me.colCupos.Name = "colCupos"
+        Me.colCupos.ReadOnly = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(777, 445)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.btnListarMiembros)
         Me.Controls.Add(Me.btnRegistrarCliente)
         Me.Controls.Add(Me.GroupBox2)
@@ -235,6 +268,7 @@ Partial Class Form1
         CType(Me.SpListarCursosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GimnasioDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -252,7 +286,10 @@ Partial Class Form1
     Friend WithEvents GimnasioDataSet As GimnasioDataSet
     Friend WithEvents SpListarCursosBindingSource As BindingSource
     Friend WithEvents Sp_ListarCursosTableAdapter As GimnasioDataSetTableAdapters.sp_ListarCursosTableAdapter
-    Friend WithEvents colnomGrupo As DataGridViewTextBoxColumn
+    Friend WithEvents Label4 As Label
+    Friend WithEvents cbmMPago As ComboBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents colidGrupo As DataGridViewTextBoxColumn
     Friend WithEvents colNombCurso As DataGridViewTextBoxColumn
     Friend WithEvents colHorario As DataGridViewTextBoxColumn
     Friend WithEvents colFechaInicio As DataGridViewTextBoxColumn
