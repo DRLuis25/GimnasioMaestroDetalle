@@ -38,6 +38,7 @@ Partial Class Form1
         Me.btnRegistrarCliente = New System.Windows.Forms.Button()
         Me.btnListarMiembros = New System.Windows.Forms.Button()
         Me.Sp_ListarCursosTableAdapter = New ProgramaMaestroDetalle.GimnasioDataSetTableAdapters.sp_ListarCursosTableAdapter()
+        Me.colidGrupo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colnomGrupo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colHorario = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFechaInicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -67,9 +68,9 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(31, 43)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(559, 129)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
@@ -78,7 +79,7 @@ Partial Class Form1
         'txtApyNom
         '
         Me.txtApyNom.Location = New System.Drawing.Point(201, 78)
-        Me.txtApyNom.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtApyNom.Margin = New System.Windows.Forms.Padding(4)
         Me.txtApyNom.Name = "txtApyNom"
         Me.txtApyNom.ReadOnly = True
         Me.txtApyNom.Size = New System.Drawing.Size(304, 22)
@@ -87,7 +88,7 @@ Partial Class Form1
         'txtDNI
         '
         Me.txtDNI.Location = New System.Drawing.Point(201, 43)
-        Me.txtDNI.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtDNI.Margin = New System.Windows.Forms.Padding(4)
         Me.txtDNI.MaxLength = 8
         Me.txtDNI.Name = "txtDNI"
         Me.txtDNI.Size = New System.Drawing.Size(132, 22)
@@ -109,9 +110,9 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.cmbCurso)
         Me.GroupBox2.Location = New System.Drawing.Point(31, 201)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(971, 351)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
@@ -124,9 +125,9 @@ Partial Class Form1
         Me.dgvListaGrupos.AllowUserToResizeColumns = False
         Me.dgvListaGrupos.AllowUserToResizeRows = False
         Me.dgvListaGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvListaGrupos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colnomGrupo, Me.colHorario, Me.colFechaInicio, Me.colFechaTerm, Me.colCupos})
+        Me.dgvListaGrupos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colidGrupo, Me.colnomGrupo, Me.colHorario, Me.colFechaInicio, Me.colFechaTerm, Me.colCupos})
         Me.dgvListaGrupos.Location = New System.Drawing.Point(20, 103)
-        Me.dgvListaGrupos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgvListaGrupos.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvListaGrupos.Name = "dgvListaGrupos"
         Me.dgvListaGrupos.RowHeadersWidth = 51
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -152,7 +153,7 @@ Partial Class Form1
         Me.cmbCurso.DisplayMember = "nombreCurso"
         Me.cmbCurso.FormattingEnabled = True
         Me.cmbCurso.Location = New System.Drawing.Point(755, 27)
-        Me.cmbCurso.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cmbCurso.Margin = New System.Windows.Forms.Padding(4)
         Me.cmbCurso.Name = "cmbCurso"
         Me.cmbCurso.Size = New System.Drawing.Size(193, 24)
         Me.cmbCurso.TabIndex = 1
@@ -171,7 +172,7 @@ Partial Class Form1
         'btnRegistrarCliente
         '
         Me.btnRegistrarCliente.Location = New System.Drawing.Point(785, 80)
-        Me.btnRegistrarCliente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnRegistrarCliente.Margin = New System.Windows.Forms.Padding(4)
         Me.btnRegistrarCliente.Name = "btnRegistrarCliente"
         Me.btnRegistrarCliente.Size = New System.Drawing.Size(100, 28)
         Me.btnRegistrarCliente.TabIndex = 5
@@ -181,7 +182,7 @@ Partial Class Form1
         'btnListarMiembros
         '
         Me.btnListarMiembros.Location = New System.Drawing.Point(771, 121)
-        Me.btnListarMiembros.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnListarMiembros.Margin = New System.Windows.Forms.Padding(4)
         Me.btnListarMiembros.Name = "btnListarMiembros"
         Me.btnListarMiembros.Size = New System.Drawing.Size(136, 28)
         Me.btnListarMiembros.TabIndex = 6
@@ -192,13 +193,20 @@ Partial Class Form1
         '
         Me.Sp_ListarCursosTableAdapter.ClearBeforeFill = True
         '
+        'colidGrupo
+        '
+        Me.colidGrupo.HeaderText = "Id Grupo"
+        Me.colidGrupo.MinimumWidth = 6
+        Me.colidGrupo.Name = "colidGrupo"
+        Me.colidGrupo.ReadOnly = True
+        Me.colidGrupo.Width = 95
+        '
         'colnomGrupo
         '
-        Me.colnomGrupo.HeaderText = "Id Grupo"
+        Me.colnomGrupo.HeaderText = "Nombre Grupo"
         Me.colnomGrupo.MinimumWidth = 6
         Me.colnomGrupo.Name = "colnomGrupo"
-        Me.colnomGrupo.ReadOnly = True
-        Me.colnomGrupo.Width = 95
+        Me.colnomGrupo.Width = 125
         '
         'colHorario
         '
@@ -230,6 +238,7 @@ Partial Class Form1
         Me.colCupos.MinimumWidth = 6
         Me.colCupos.Name = "colCupos"
         Me.colCupos.ReadOnly = True
+        Me.colCupos.Width = 125
         '
         'Form1
         '
@@ -240,7 +249,7 @@ Partial Class Form1
         Me.Controls.Add(Me.btnRegistrarCliente)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form1"
         Me.Text = "Mantenimiento de Grupos"
         Me.GroupBox1.ResumeLayout(False)
@@ -268,6 +277,7 @@ Partial Class Form1
     Friend WithEvents GimnasioDataSet As GimnasioDataSet
     Friend WithEvents SpListarCursosBindingSource As BindingSource
     Friend WithEvents Sp_ListarCursosTableAdapter As GimnasioDataSetTableAdapters.sp_ListarCursosTableAdapter
+    Friend WithEvents colidGrupo As DataGridViewTextBoxColumn
     Friend WithEvents colnomGrupo As DataGridViewTextBoxColumn
     Friend WithEvents colHorario As DataGridViewTextBoxColumn
     Friend WithEvents colFechaInicio As DataGridViewTextBoxColumn

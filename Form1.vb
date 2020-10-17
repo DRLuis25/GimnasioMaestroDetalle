@@ -27,7 +27,7 @@ Public Class Form1
         For Each item As Grupo In Lista
             objH.IdHorario = item.idHorario
             objDG.idGrupo = item.idGrupo
-            dgvListaGrupos.Rows.Add(item.idGrupo, HorarioLN.ListarHoras(objH),
+            dgvListaGrupos.Rows.Add(item.idGrupo, item.NombreGrupo, HorarioLN.ListarHoras(objH),
                                     item.fechaInicio, item.fechaFin, DetalleGrupoLN.ListarCupos(objDG))
         Next
 

@@ -16,7 +16,7 @@ Public Class GrupoAD
             Lector = cmd.ExecuteReader
             While Lector.Read
                 Lista.Add(New Grupo With {.idGrupo = Lector.Item(0), .fechaInicio = Lector.Item(1),
-                          .fechaFin = Lector.Item(2), .idHorario = Lector(3)})
+                          .fechaFin = Lector.Item(2), .idHorario = Lector(3), .NombreGrupo = Lector(4)})
             End While
             Return Lista
         Catch ex As Exception
