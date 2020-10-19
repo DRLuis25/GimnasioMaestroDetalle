@@ -44,4 +44,22 @@
             m_MedioDePago = value
         End Set
     End Property
+    Private m_Monto As Double
+    Public Property Monto() As Double
+        Get
+            Return m_Monto
+        End Get
+        Set(ByVal value As Double)
+            m_Monto = value
+        End Set
+    End Property
+    Private m_idPrecio As Integer
+    Public Property idPrecio() As Integer
+        Get
+            Return m_idPrecio
+        End Get
+        Set(ByVal value As Integer)
+            m_idPrecio = value
+        End Set
+    End Property
 End Class

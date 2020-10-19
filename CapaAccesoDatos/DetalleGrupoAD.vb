@@ -1,6 +1,8 @@
 ﻿Imports CapaAccesoDatos.My
 Imports CapaEntidad
 Imports System.Data.SqlClient
+Imports System.Windows.Forms
+
 Public Class DetalleGrupoAD
     Public Function ListarCupos(objDG As DetalleGrupo) As String
         Dim cn As New SqlConnection(My.Settings.Conexion)
@@ -25,13 +27,6 @@ Public Class DetalleGrupoAD
         End Try
         Return ""
     End Function
-End Class
-Imports CapaAccesoDatos.My
-Imports CapaEntidad
-Imports System.Data.SqlClient
-Imports System.Windows.Forms
-
-Public Class DetalleGrupoAD
     Public Sub RegistrarNuevoDetalle(objDG As DetalleGrupo)
         Dim cn As New SqlConnection(My.Settings.Conexion)
         Dim cmdD As New SqlCommand("sp_RegistrarNuevoDetalleGrupo", cn)
@@ -49,7 +44,7 @@ Public Class DetalleGrupoAD
             MessageBox.Show("ingresado")
         Catch ex As Exception
             tr.Rollback()
-            MessageBox.Show(ex.Message)
+            MessageBox.Show("Error al registrar el cliente: " + ex.Message)
             Exit Sub
         End Try
 

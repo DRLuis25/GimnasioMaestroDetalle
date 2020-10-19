@@ -15,8 +15,7 @@ Public Class GrupoAD
             Dim Lector As SqlDataReader
             Lector = cmd.ExecuteReader
             While Lector.Read
-                Lista.Add(New Grupo With {.idGrupo = Lector.Item(0), .fechaInicio = Lector.Item(1),
-                          .fechaFin = Lector.Item(2), .idHorario = Lector(3), .NombreGrupo = Lector(4)})
+                Lista.Add(New Grupo With {.idGrupo = Lector.Item(0), .fechaInicio = Lector.Item(1), .fechaFin = Lector.Item(2), .idHorario = Lector(3), .NombreGrupo = Lector(4)})
             End While
             Return Lista
         Catch ex As Exception
@@ -24,7 +23,5 @@ Public Class GrupoAD
         Finally
             cn.Close()
         End Try
-
-
     End Function
 End Class

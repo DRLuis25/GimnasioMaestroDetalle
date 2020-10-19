@@ -5,4 +5,9 @@ Public Class PersonaLN
         Dim objAD As New PersonaAD
         Return objAD.BuscarPersona(objA)
     End Function
+
+    Public Shared Function ListarClientesRegistrados(objG As Grupo) As List(Of Persona)
+        Dim objAD As New PersonaAD
+        Return objAD.ListarClientesRegistrados(objG)
+    End Function
 End Class
