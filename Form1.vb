@@ -78,23 +78,26 @@ Public Class Form1
     End Sub
 
     Private Sub btnListarMiembros_Click(sender As Object, e As EventArgs) Handles btnListarMiembros.Click
-        dgvListaClientes.Rows.Clear()
-        Dim nroFila As Integer
-        Dim idGrupo As String
-        If dgvListaGrupos.SelectedRows.Count = 1 Then
+        Try
+            dgvListaClientes.Rows.Clear()
+            Dim nroFila As Integer
+            Dim idGrupo As String
+            If dgvListaGrupos.SelectedRows.Count = 1 Then
 
-            nroFila = dgvListaGrupos.CurrentRow.Index
-            idGrupo = dgvListaGrupos.Rows(nroFila).Cells(0).Value
-            Dim objG As New Grupo
-            objG.idGrupo = idGrupo
-            Dim Lista
-            Lista = PersonaLN.listarClientesRegistrados(objG)
-            For Each item As Persona In Lista
-                dgvListaClientes.Rows.Add(item.DNI, item.ApPaterno, item.ApMaterno, item.Nombres, item.Telefono, item.Correo, DateAndTime.DateDiff(DateInterval.Year, item.FechaNac, DateAndTime.Today))
-            Next
-            dgvListaGrupos.ClearSelection()
-        Else
-            MessageBox.Show("Seleccione un grupo")
-        End If
+                nroFila = dgvListaGrupos.CurrentRow.Index
+                idGrupo = dgvListaGrupos.Rows(nroFila).Cells(0).Value
+                Dim objG As New Grupo
+                objG.idGrupo = idGrupo
+                Dim Lista
+                Lista = PersonaLN.ListarClientesRegistrados(objG)
+                For Each item As Persona In Lista
+                    dgvListaClientes.Rows.Add(item.DNI, item.ApPaterno, item.ApMaterno, item.Nombres, item.Telefono, item.Correo, DateAndTime.DateDiff(DateInterval.Year, item.FechaNac, DateAndTime.Today))
+                Next
+                dgvListaGrupos.ClearSelection()
+            Else
+                MessageBox.Show("Seleccione un grupo")
+            End If
+        Catch ex As Exception
+        End Try
     End Sub
 End Class
